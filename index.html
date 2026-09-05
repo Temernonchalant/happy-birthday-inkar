@@ -192,10 +192,41 @@ section.block{
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .reveal.in{opacity:1;transform:none}
 
+/* Photo gallery */
+.gallery{
+  display:grid;gap:clamp(0.9rem,1.6vw,1.4rem);
+  max-width:1180px;margin:0 auto;
+  padding:clamp(2rem,5vh,3.5rem) clamp(1.5rem,6vw,4.5rem);
+}
+.g-2{grid-template-columns:repeat(2,1fr)}
+.g-3{grid-template-columns:repeat(3,1fr)}
+.frame{
+  position:relative;overflow:hidden;border:1px solid var(--hairline);
+  aspect-ratio:4/5;
+  background:
+    repeating-linear-gradient(135deg,rgba(245,244,242,0.05) 0 2px,transparent 2px 7px),
+    radial-gradient(120% 120% at 30% 20%,rgba(150,24,47,0.28),transparent 62%),
+    linear-gradient(160deg,var(--graphite),var(--black));
+}
+.frame.wide{aspect-ratio:16/9;grid-column:1 / -1}
+.frame.tall{aspect-ratio:3/4}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+.frame .ph{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  color:var(--silver);font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;
+}
+.frame .cap{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:1rem 1.1rem .9rem;
+  font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--champagne);
+  background:linear-gradient(transparent,rgba(27,24,21,0.7));
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width:760px){
   .wishes{grid-template-columns:1fr}
   .heart-stage{width:130vw;height:130vw}
+  .g-2,.g-3{grid-template-columns:1fr}
 }
 
 /* Cursor only where supported */
@@ -250,70 +281,66 @@ section.block{
   <div class="hero-content">
     <span class="eyebrow">An Editorial in Celebration</span>
     <h1>Happy Birthday <em>Inkar</em></h1>
-    <p class="hero-tag">One year brighter. Scroll slowly — this one was written for you, and only you.</p>
-    <a class="scroll-hint" href="#letter">
-      Unfold the letter
+    <a class="scroll-hint" href="#chapter-one">
+      Scroll
       <span class="line"></span>
     </a>
   </div>
 </section>
 
-<!-- ============ LETTER ============ -->
-<section class="block" id="letter">
+<!-- ============ CHAPTER ONE ============ -->
+<section class="block" id="chapter-one">
   <div class="reveal">
-    <span class="eyebrow sec-eyebrow">The Opening Note</span>
-    <p class="pull-quote">Some people are easy to celebrate. You have always been the easiest.</p>
-    <p class="body-copy">There are friends, and then there is the kind of person a whole day should be named after. Today the day is yours. Not because the calendar says so, but because the world is a little warmer, a little funnier, and a great deal more loved with you in it.</p>
-    <p class="body-copy">So here is a small thing made carefully, the way you deserve — a quiet page with your name in the middle and a heart that will not stop beating for you.</p>
+    <span class="eyebrow sec-eyebrow">Chapter One</span>
+    <h2 class="sec-title">Where it <em>all began.</em></h2>
   </div>
 </section>
+<div class="gallery g-2 reveal">
+  <div class="frame wide"><span class="ph">Photo 01</span></div>
+  <div class="frame"><span class="ph">Photo 02</span></div>
+  <div class="frame"><span class="ph">Photo 03</span></div>
+</div>
 
 <div class="divider"></div>
 
-<!-- ============ ABOUT HER ============ -->
+<!-- ============ CHAPTER TWO ============ -->
 <section class="block">
   <div class="reveal">
-    <span class="eyebrow sec-eyebrow">On the Guest of Honour</span>
-    <h2 class="sec-title">The rare <em>and radiant</em> kind.</h2>
-    <p class="body-copy">You are the friend who remembers the small things, who shows up, who makes the ordinary feel like it was worth dressing up for. You laugh with your whole self and you love the same way — completely, and without keeping score.</p>
-    <p class="body-copy">Being your friend is one of the good, lucky, undeserved things in life. This year, I hope the universe finally pays you back a fraction of the warmth you hand out for free.</p>
+    <span class="eyebrow sec-eyebrow">Chapter Two</span>
+    <h2 class="sec-title">The years <em>in between.</em></h2>
   </div>
 </section>
+<div class="gallery g-3 reveal">
+  <div class="frame tall"><span class="ph">Photo 04</span></div>
+  <div class="frame tall"><span class="ph">Photo 05</span></div>
+  <div class="frame tall"><span class="ph">Photo 06</span></div>
+</div>
+<div class="gallery reveal">
+  <div class="frame wide"><span class="ph">Photo 07</span></div>
+</div>
 
 <div class="divider"></div>
 
-<!-- ============ SIX WISHES ============ -->
+<!-- ============ CHAPTER THREE ============ -->
 <section class="block">
   <div class="reveal">
-    <span class="eyebrow sec-eyebrow">Six Wishes</span>
-    <h2 class="sec-title">Small hopes, <em>said out loud.</em></h2>
-    <div class="wishes">
-      <div class="wish"><span class="w-num">01</span><p>May this year be softer than the last — and braver too, exactly where it counts.</p></div>
-      <div class="wish"><span class="w-num">02</span><p>May you finally get the rest you keep so generously giving to everyone else.</p></div>
-      <div class="wish"><span class="w-num">03</span><p>May your plans meet you halfway, and may your luck cheerfully cover the rest.</p></div>
-      <div class="wish"><span class="w-num">04</span><p>May you laugh the ugly, uncontrollable, can't-breathe kind of laugh, often.</p></div>
-      <div class="wish"><span class="w-num">05</span><p>May you feel, on every ordinary day, exactly how deeply you are loved.</p></div>
-      <div class="wish"><span class="w-num">06</span><p>And may we get to celebrate you like this, every single year, for a very long time.</p></div>
-    </div>
+    <span class="eyebrow sec-eyebrow">Chapter Three</span>
+    <h2 class="sec-title">Us, mostly <em>laughing.</em></h2>
   </div>
 </section>
+<div class="gallery g-2 reveal">
+  <div class="frame"><span class="ph">Photo 08</span></div>
+  <div class="frame"><span class="ph">Photo 09</span></div>
+  <div class="frame wide"><span class="ph">Photo 10</span></div>
+</div>
 
 <div class="divider"></div>
-
-<!-- ============ YEAR AHEAD ============ -->
-<section class="block">
-  <div class="reveal">
-    <span class="eyebrow sec-eyebrow">The Year Ahead</span>
-    <p class="lede">Here is to new cities and old songs, to good news arriving early, to plans that actually happen, and to a version of you even happier than the one I already adore.</p>
-  </div>
-</section>
 
 <!-- ============ CLOSING ============ -->
 <section class="block closing">
   <div class="reveal">
     <span class="mini-heart">&#10084;</span>
     <h2>Happy Birthday, <em>Inkar.</em></h2>
-    <p class="sign">With all my love — today, and every day after.</p>
     <div class="foot">Made with love · MMXXVI</div>
   </div>
 </section>
