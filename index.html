@@ -225,9 +225,12 @@ section.block{
 
 /* ---------- Responsive ---------- */
 @media (max-width:760px){
-  .wishes{grid-template-columns:1fr}
   .heart-stage{width:130vw;height:130vw}
-  .g-2,.g-3{grid-template-columns:1fr}
+  /* Keep the same grid arrangement on phones (don't collapse to one column).
+     wide/land frames still span full width; paired frames stay side by side. */
+  .g-2{grid-template-columns:repeat(2,1fr)}
+  .g-3{grid-template-columns:repeat(3,1fr)}
+  .gallery{gap:0.5rem;padding-left:clamp(0.9rem,4vw,1.5rem);padding-right:clamp(0.9rem,4vw,1.5rem)}
 }
 
 /* Cursor only where supported */
@@ -312,6 +315,7 @@ section.block{
   </div>
 </section>
 <div class="gallery reveal">
+  <div class="frame land"><img src="photos/between-4.jpeg" alt="Inkar and classmates in school uniforms" loading="lazy"></div>
   <div class="frame land"><img src="photos/between-1.jpeg" alt="Inkar with a big group of friends, thumbs up" loading="lazy"></div>
   <div class="frame land"><img src="photos/between-2.jpeg" alt="Inkar and friends gathered in the kitchen" loading="lazy"></div>
   <div class="frame land"><img src="photos/between-3.jpeg" alt="Inkar and friends in a playful mirror group selfie" loading="lazy"></div>
@@ -326,10 +330,12 @@ section.block{
     <h2 class="sec-title">Us, mostly <em>laughing.</em></h2>
   </div>
 </section>
+<div class="gallery reveal">
+  <div class="frame land"><img src="photos/laughing-1.jpeg" alt="Inkar and a friend pulling silly faces" loading="lazy"></div>
+</div>
 <div class="gallery g-2 reveal">
-  <div class="frame"><span class="ph">Photo 08</span></div>
-  <div class="frame"><span class="ph">Photo 09</span></div>
-  <div class="frame wide"><span class="ph">Photo 10</span></div>
+  <div class="frame"><img src="photos/laughing-2.jpeg" alt="Inkar resting with a leg in a cast, drink in hand" loading="lazy"></div>
+  <div class="frame"><img src="photos/laughing-3.jpeg" alt="Inkar laughing while being kissed on the cheek" loading="lazy"></div>
 </div>
 
 <div class="divider"></div>
