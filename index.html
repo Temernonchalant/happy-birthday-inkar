@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Inkar — An Editorial in Celebration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#1B1815;
+  --charcoal:#242019;
+  --graphite:#2B2620;
+  --cherry:#7A1024;
+  --burgundy:#96182F;
+  --warm-white:#F5F4F2;
+  --silver:#B3ABA1;
+  --champagne:#D8CBB4;
+  --hairline:rgba(245,244,242,0.16);
+  --ease:cubic-bezier(0.16,1,0.3,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+html,body{
+  background:var(--black);color:var(--warm-white);
+  overflow-x:hidden;
+}
+body{
+  font-family:'Inter',sans-serif;font-weight:300;
+  -webkit-font-smoothing:antialiased;line-height:1.6;
+}
+
+::selection{background:var(--cherry);color:var(--warm-white)}
+
+h1,h2,h3,h4{
+  font-family:'Fraunces',serif;font-weight:400;
+  text-transform:uppercase;line-height:1.02;letter-spacing:-0.01em;
+}
+em,i{font-style:italic;color:var(--burgundy)}
+
+.eyebrow{
+  font-family:'Inter',sans-serif;font-size:0.68rem;font-weight:400;
+  text-transform:uppercase;letter-spacing:0.32em;color:var(--champagne);
+}
+
+/* ---------- Film grain ---------- */
+.grain{
+  position:fixed;inset:0;z-index:9998;pointer-events:none;
+  mix-blend-mode:overlay;opacity:0.045;
+}
+
+/* ---------- Custom cursor ---------- */
+.cursor-dot,.cursor-ring{
+  position:fixed;top:0;left:0;z-index:9999;pointer-events:none;
+  border-radius:50%;mix-blend-mode:difference;
+  transform:translate(-50%,-50%);will-change:transform;
+}
+.cursor-dot{width:6px;height:6px;background:var(--warm-white)}
+.cursor-ring{
+  width:36px;height:36px;border:1px solid var(--warm-white);
+  transition:width .35s var(--ease),height .35s var(--ease),opacity .35s var(--ease);
+}
+.cursor-ring.hovering{width:66px;height:66px;opacity:.7}
+
+/* ---------- Masthead ---------- */
+.masthead{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:clamp(1.4rem,3vw,2.4rem) clamp(1.4rem,4vw,3.5rem);
+  pointer-events:none;
+  mix-blend-mode:difference;
+}
+.masthead .brand{
+  font-family:'Fraunces',serif;text-transform:uppercase;
+  font-size:0.9rem;letter-spacing:0.22em;font-weight:500;
+}
+.masthead .brand em{font-weight:300}
+.masthead .vol{
+  font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--champagne);
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;padding:6rem 1.4rem;
+}
+.heart-stage{
+  position:absolute;left:50%;top:50%;
+  width:min(104vmin,900px);height:min(104vmin,900px);
+  transform:translate(-50%,-50%);
+  z-index:0;pointer-events:none;
+}
+.heart-aura{
+  position:absolute;left:50%;top:50%;
+  width:120%;height:120%;transform:translate(-50%,-50%);
+  pointer-events:none;filter:blur(54px);will-change:opacity;
+  animation:glowbeat 2.4s var(--ease) infinite;
+}
+.heart-aura .blob{position:absolute;width:62%;height:62%;border-radius:50%;mix-blend-mode:screen;will-change:transform}
+.heart-aura .b1{top:19%;left:19%;background:radial-gradient(circle at center, rgba(150,24,47,0.55) 0, rgba(150,24,47,0) 62%);animation:auraVertical 13s ease-in-out infinite}
+.heart-aura .b2{top:10%;left:30%;transform-origin:calc(50% - 140px) center;background:radial-gradient(circle at center, rgba(122,16,36,0.50) 0, rgba(122,16,36,0) 62%);animation:auraCircle 20s linear infinite}
+.heart-aura .b3{top:30%;left:9%;transform-origin:calc(50% + 140px) center;background:radial-gradient(circle at center, rgba(180,36,58,0.42) 0, rgba(180,36,58,0) 62%);animation:auraCircle 30s linear reverse infinite}
+.heart-aura .b4{top:24%;left:24%;background:radial-gradient(circle at center, rgba(90,10,25,0.55) 0, rgba(90,10,25,0) 62%);animation:auraHorizontal 22s ease-in-out infinite}
+.heart-pointer{
+  position:absolute;left:50%;top:50%;width:70%;height:70%;margin:-35% 0 0 -35%;
+  border-radius:50%;background:radial-gradient(circle at center, rgba(150,24,47,0.50) 0, rgba(150,24,47,0) 60%);
+  mix-blend-mode:screen;filter:blur(50px);pointer-events:none;opacity:.75;will-change:transform;
+}
+@keyframes glowbeat{
+  0%,100%{opacity:.58}
+  8%{opacity:.95}
+  16%{opacity:.66}
+  24%{opacity:.84}
+  34%{opacity:.58}
+}
+@keyframes auraVertical{0%,100%{transform:translateY(-14%)}50%{transform:translateY(14%)}}
+@keyframes auraHorizontal{0%,100%{transform:translateX(-14%) translateY(-7%)}50%{transform:translateX(14%) translateY(7%)}}
+@keyframes auraCircle{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+
+.heart-deco{
+  position:absolute;inset:0;width:100%;height:100%;overflow:visible;
+  transform-origin:50% 50%;animation:beat 2.4s var(--ease) infinite;
+}
+#heartPath,#heartPathInner{stroke:var(--hairline)}
+#heartPathInner{transform:scale(0.82);transform-origin:50% 50%;transform-box:fill-box}
+@keyframes beat{
+  0%,100%{transform:scale(1)}
+  8%{transform:scale(1.05)}
+  16%{transform:scale(0.99)}
+  24%{transform:scale(1.035)}
+  34%{transform:scale(1)}
+}
+
+.hero-content{position:relative;z-index:2;max-width:34ch}
+.hero-content .eyebrow{display:block;margin-bottom:1.6rem}
+.hero-content h1{
+  font-size:clamp(2.6rem,10vw,6rem);margin-bottom:1.6rem;line-height:.98;
+}
+.hero-content h1 em{display:block}
+.hero-tag{font-size:0.92rem;color:var(--silver);max-width:30ch;margin:0 auto 2.6rem;line-height:1.75}
+.scroll-hint{
+  font-size:0.6rem;text-transform:uppercase;letter-spacing:0.3em;color:var(--champagne);
+  display:inline-flex;flex-direction:column;align-items:center;gap:.7rem;
+}
+.scroll-hint .line{width:1px;height:42px;background:linear-gradient(var(--champagne),transparent);animation:drop 2.2s var(--ease) infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- Sections ---------- */
+section.block{
+  position:relative;
+  max-width:1000px;margin:0 auto;
+  padding:clamp(5rem,14vh,9rem) clamp(1.5rem,6vw,4.5rem);
+}
+.sec-eyebrow{display:block;margin-bottom:1.6rem}
+.sec-title{font-size:clamp(2rem,6vw,4rem);max-width:18ch;margin-bottom:2.4rem}
+.lede{font-size:clamp(1.05rem,2vw,1.35rem);color:var(--silver);max-width:44ch;line-height:1.75;font-weight:300}
+.body-copy{max-width:52ch;margin-bottom:1.6rem;color:var(--silver);font-size:1.02rem}
+.body-copy:last-child{margin-bottom:0}
+
+.pull-quote{
+  font-family:'Fraunces',serif;font-style:italic;text-transform:none;font-weight:300;
+  font-size:clamp(1.8rem,4.6vw,3.2rem);line-height:1.25;max-width:22ch;margin-bottom:3.5rem;color:var(--warm-white);
+}
+.pull-quote::before{content:"\201C";color:var(--burgundy)}
+.pull-quote::after{content:"\201D";color:var(--burgundy)}
+
+.divider{height:1px;background:var(--hairline);max-width:1000px;margin:0 auto}
+
+/* Wishes grid */
+.wishes{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--hairline);border-left:1px solid var(--hairline)}
+.wish{
+  border-right:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
+  padding:clamp(1.6rem,3vw,2.4rem);display:grid;grid-template-columns:auto 1fr;gap:1.4rem;align-items:start;
+  transition:background .45s var(--ease);
+}
+.wish:hover{background:var(--graphite)}
+.wish .w-num{font-family:'Fraunces',serif;font-size:1.1rem;color:transparent;-webkit-text-stroke:.8px var(--burgundy)}
+.wish p{color:var(--silver);font-size:0.98rem;line-height:1.65}
+
+/* Closing */
+.closing{text-align:center;padding-bottom:clamp(6rem,16vh,11rem)}
+.closing .mini-heart{font-size:1.6rem;color:var(--burgundy);display:inline-block;animation:beat 2.4s var(--ease) infinite;margin-bottom:1.6rem}
+.closing h2{font-size:clamp(2rem,6vw,4rem);max-width:20ch;margin:0 auto 1.6rem}
+.closing .sign{font-family:'Fraunces',serif;font-style:italic;text-transform:none;color:var(--champagne);font-size:1.2rem}
+.foot{margin-top:4rem;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.28em;color:var(--silver)}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- Responsive ---------- */
+@media (max-width:760px){
+  .wishes{grid-template-columns:1fr}
+  .heart-stage{width:130vw;height:130vw}
+}
+
+/* Cursor only where supported */
+@media (hover:hover) and (pointer:fine){
+  *{cursor:none}
+  .cursor-dot,.cursor-ring{display:block}
+}
+@media (hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .heart-aura,.heart-deco,.closing .mini-heart,.scroll-hint .line,.heart-aura .blob{animation:none}
+  .heart-aura{opacity:.6}
+  .reveal{opacity:1;transform:none;transition:none}
+}
+
+:focus-visible{outline:2px solid var(--champagne);outline-offset:4px}
+</style>
+</head>
+<body>
+
+<!-- Film grain -->
+<svg class="grain" xmlns="http://www.w3.org/2000/svg">
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter>
+  <rect width="100%" height="100%" filter="url(#grain)"/>
+</svg>
+
+<div class="cursor-ring"></div>
+<div class="cursor-dot"></div>
+
+<header class="masthead">
+  <div class="brand">For <em>Inkar</em></div>
+  <div class="vol">Vol. You — MMXXVI</div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="heart-stage">
+    <div class="heart-aura" aria-hidden="true">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+      <div class="blob b4"></div>
+    </div>
+    <div class="heart-pointer" aria-hidden="true"></div>
+    <svg class="heart-deco" viewBox="-20 -20 40 40" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <path id="heartPath" fill="none" stroke-width="0.28"></path>
+      <path id="heartPathInner" fill="none" stroke-width="0.18" opacity="0.5"></path>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <span class="eyebrow">An Editorial in Celebration</span>
+    <h1>Happy Birthday <em>Inkar</em></h1>
+    <p class="hero-tag">One year brighter. Scroll slowly — this one was written for you, and only you.</p>
+    <a class="scroll-hint" href="#letter">
+      Unfold the letter
+      <span class="line"></span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ LETTER ============ -->
+<section class="block" id="letter">
+  <div class="reveal">
+    <span class="eyebrow sec-eyebrow">The Opening Note</span>
+    <p class="pull-quote">Some people are easy to celebrate. You have always been the easiest.</p>
+    <p class="body-copy">There are friends, and then there is the kind of person a whole day should be named after. Today the day is yours. Not because the calendar says so, but because the world is a little warmer, a little funnier, and a great deal more loved with you in it.</p>
+    <p class="body-copy">So here is a small thing made carefully, the way you deserve — a quiet page with your name in the middle and a heart that will not stop beating for you.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ ABOUT HER ============ -->
+<section class="block">
+  <div class="reveal">
+    <span class="eyebrow sec-eyebrow">On the Guest of Honour</span>
+    <h2 class="sec-title">The rare <em>and radiant</em> kind.</h2>
+    <p class="body-copy">You are the friend who remembers the small things, who shows up, who makes the ordinary feel like it was worth dressing up for. You laugh with your whole self and you love the same way — completely, and without keeping score.</p>
+    <p class="body-copy">Being your friend is one of the good, lucky, undeserved things in life. This year, I hope the universe finally pays you back a fraction of the warmth you hand out for free.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ SIX WISHES ============ -->
+<section class="block">
+  <div class="reveal">
+    <span class="eyebrow sec-eyebrow">Six Wishes</span>
+    <h2 class="sec-title">Small hopes, <em>said out loud.</em></h2>
+    <div class="wishes">
+      <div class="wish"><span class="w-num">01</span><p>May this year be softer than the last — and braver too, exactly where it counts.</p></div>
+      <div class="wish"><span class="w-num">02</span><p>May you finally get the rest you keep so generously giving to everyone else.</p></div>
+      <div class="wish"><span class="w-num">03</span><p>May your plans meet you halfway, and may your luck cheerfully cover the rest.</p></div>
+      <div class="wish"><span class="w-num">04</span><p>May you laugh the ugly, uncontrollable, can't-breathe kind of laugh, often.</p></div>
+      <div class="wish"><span class="w-num">05</span><p>May you feel, on every ordinary day, exactly how deeply you are loved.</p></div>
+      <div class="wish"><span class="w-num">06</span><p>And may we get to celebrate you like this, every single year, for a very long time.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ YEAR AHEAD ============ -->
+<section class="block">
+  <div class="reveal">
+    <span class="eyebrow sec-eyebrow">The Year Ahead</span>
+    <p class="lede">Here is to new cities and old songs, to good news arriving early, to plans that actually happen, and to a version of you even happier than the one I already adore.</p>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="block closing">
+  <div class="reveal">
+    <span class="mini-heart">&#10084;</span>
+    <h2>Happy Birthday, <em>Inkar.</em></h2>
+    <p class="sign">With all my love — today, and every day after.</p>
+    <div class="foot">Made with love · MMXXVI</div>
+  </div>
+</section>
+
+<script>
+(function(){
+  "use strict";
+  const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* ---------- Draw heart outline ---------- */
+  function heartPoint(t){
+    return {
+      x: 16*Math.pow(Math.sin(t),3),
+      y: 13*Math.cos(t) - 5*Math.cos(2*t) - 2*Math.cos(3*t) - Math.cos(4*t)
+    };
+  }
+  (function drawHeart(){
+    const N=720, samp=[];
+    for(let i=0;i<=N;i++){ samp.push(heartPoint(2*Math.PI*i/N)); }
+    let d='M';
+    for(let i=0;i<samp.length;i++){ d += (i?' L ':' ') + samp[i].x.toFixed(2) + ' ' + (-samp[i].y).toFixed(2); }
+    d += ' Z';
+    const outer=document.getElementById('heartPath'), inner=document.getElementById('heartPathInner');
+    if(outer) outer.setAttribute('d', d);
+    if(inner) inner.setAttribute('d', d);
+  })();
+
+  /* ---------- Cursor-following aura blob (hero) ---------- */
+  (function auraPointer(){
+    const stage = document.querySelector('.heart-stage');
+    const pointer = document.querySelector('.heart-pointer');
+    if(!stage || !pointer || reduce) return;
+    if(!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    let px=0,py=0,tx=0,ty=0,active=false;
+    window.addEventListener('mousemove', e=>{
+      const r = stage.getBoundingClientRect();
+      tx = e.clientX - (r.left + r.width/2);
+      ty = e.clientY - (r.top + r.height/2);
+      active = true;
+    });
+    (function loop(){
+      if(active){ px+=(tx-px)*0.1; py+=(ty-py)*0.1;
+        pointer.style.transform=`translate(${px.toFixed(1)}px, ${py.toFixed(1)}px)`; }
+      requestAnimationFrame(loop);
+    })();
+  })();
+
+  /* ---------- Custom cursor ---------- */
+  if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    const dot=document.querySelector('.cursor-dot'), ring=document.querySelector('.cursor-ring');
+    let rx=0,ry=0,dx=0,dy=0;
+    window.addEventListener('mousemove', e=>{ dx=e.clientX; dy=e.clientY;
+      dot.style.transform=`translate(${dx}px,${dy}px) translate(-50%,-50%)`; });
+    (function loop(){ rx+=(dx-rx)*0.18; ry+=(dy-ry)*0.18;
+      ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+      requestAnimationFrame(loop); })();
+    document.querySelectorAll('a, .wish').forEach(el=>{
+      el.addEventListener('mouseenter', ()=>ring.classList.add('hovering'));
+      el.addEventListener('mouseleave', ()=>ring.classList.remove('hovering'));
+    });
+  }
+
+  /* ---------- Scroll reveal ---------- */
+  const reveals = document.querySelectorAll('.reveal');
+  if(reduce){ reveals.forEach(r=>r.classList.add('in')); }
+  else{
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:0.18});
+    reveals.forEach(r=>io.observe(r));
+  }
+})();
+</script>
+</body>
+</html>
